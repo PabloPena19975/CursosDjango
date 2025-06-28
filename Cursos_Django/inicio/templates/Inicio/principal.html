@@ -1,0 +1,20 @@
+{% extends "inicio/encabezado.html" %}
+
+{% block titulo%} principal {%endblock%}
+
+{%block imagen%}
+    {%load static%}
+    {%static 'inicio/images/homes.png'%}
+{% endblock%}
+{%block descripcion%}
+	Principal <span>DSM</span>
+{% endblock%}
+
+{% block contenido%}
+
+<div class="contenedor">
+    <h1>Bienvenido a mi página Django</h1>
+	    <p>Explora los cursos y la sección de contacto usando el menú de arriba.</p>
+</div>
+
+{%endblock%}

@@ -1,0 +1,45 @@
+{% extends "inicio/encabezado.html" %}
+
+{% block titulo%} formulario {%endblock%}
+
+{%block imagen%}
+    {%load static%}
+    {%static 'inicio/images/cursos.png'%}
+{% endblock%}
+{%block descripcion%}
+	Cursos
+{% endblock%}
+
+{% block contenido%}
+<!-- Contenido Principal-->
+<div class="page-content">
+	<!--Encabezdo -->
+	<div class="page-header">
+		<div class="page-title">
+			<h3>
+			<small>Escoge el curso</small></h3>
+		</div>
+	</div>
+			<!-- /Encabezado-->
+
+			<!-- Formulario -->
+			<form class="form-horizontal" action="#" role="form">
+	            <div class="panel panel-default">
+	                <div class="contenedor">
+        <h2>Cursos Disponibles</h2>
+        <label>Selecciona un curso:</label>
+        <select name="cursos">
+            <option>Base de Datos</option>
+            <option>Programación</option>
+            <option>Desarrollo Web</option>
+			<option>Desarrollo Web</option>
+            <option>Python Avanzado</option>
+        </select>
+    </div>
+				</div>
+			</form>
+		<!-- Fin del Formulario -->
+		</div>
+		<!-- /Contenido Principal-->
+
+{%endblock%}

@@ -1,0 +1,35 @@
+{% extends "inicio/encabezado.html" %}
+
+{% block titulo%} contacto {%endblock%}
+
+{%block imagen%}
+    {%load static%}
+    {%static 'inicio/images/contacto.png'%}
+{% endblock%}
+{%block descripcion%}
+	Contacto <span>DSM</span>
+{% endblock%}
+
+{% block contenido%}
+<div class="contenedor">
+        <h2>Contacto</h2>
+        <form>
+            <label>Nombre:</label>
+            <input type="text" name="nombre" placeholder="Nombre completo"><hr>
+
+            <label>Correo:</label>
+            <input type="email" name="correo" placeholder="correo@ut.com"><hr>
+
+            <label>Curso de Interés:</label>
+            <select name="cursos">
+                <option>Base de Datos</option>
+                <option>Programación</option>
+            </select> <hr>
+
+            <label>Comentario:</label><br>
+            <textarea cols="50" rows="4"></textarea><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+{%endblock%}
