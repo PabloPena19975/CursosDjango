@@ -28,15 +28,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="text-center">
-                    <img src="" alt="" class="img-media">
-                </td>
-                <td class="text-semibold">UTM1234TIC</td>
-                <td class="muted">Nathalia</td>
-                <td class="muted">Tic</td>
-                <td class="muted">Matutino</td>
-            </tr>
+            {% for curso in cursos %}
+                <tr>
+                    <td class="text-center">
+                        <img src="{{curso.imagen.url}}" alt="" class="img-media" width="100" height="100">
+                    </td>
+                    <td class="text-semibold">{{curso.nombre}}</td>
+                    <td class="muted">{{curso.descripcion}}</td>
+                    <td class="muted">{{curso.duracion}}</td>
+                    <td class="muted">{{curso.costo}}</td>
+                    <td class="muted">{{curso.modalidad}}</td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
         <!-- The slideshow/carousel -->

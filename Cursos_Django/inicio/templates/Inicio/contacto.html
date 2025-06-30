@@ -14,22 +14,22 @@
 <div class="contenedor">
         <h2>Contacto</h2>
         <form>
-            <label>Nombre:</label>
+            <label class="form-label">Nombre:</label>
             <input type="text" name="nombre" placeholder="Nombre completo"><hr>
 
-            <label>Correo:</label>
+            <label class="form-label">Correo:</label>
             <input type="email" name="correo" placeholder="correo@ut.com"><hr>
 
-            <label>Curso de Interés:</label>
-            <select name="cursos">
+            <label class="form-label">Curso de Interés:</label>
+            <select name="cursos" class="form-select">
                 <option>Base de Datos</option>
                 <option>Programación</option>
             </select> <hr>
 
-            <label>Comentario:</label><br>
-            <textarea cols="50" rows="4"></textarea><br>
+            <label class="form-label">Comentario:</label><br>
+            <textarea class="form-control" id="comment" name="text"></textarea><br>
 
-            <input type="submit" value="Enviar">
+            <input type="submit" class="btn btn-primary" value="Enviar">
         </form>
     </div>
 {%endblock%}
