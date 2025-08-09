@@ -1,0 +1,56 @@
+{% extends "inicio/encabezado.html" %}
+
+{% block titulo%} formulario {%endblock%}
+
+{%block imagen%}
+    {%load static%}
+    {%static 'inicio/images/cursos.png'%}
+{% endblock%}
+{%block descripcion%}
+	Cursos
+{% endblock%}
+
+{% block contenido%}
+<!-- Contenido Principal-->
+<p>Explora los cursos.</p>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Tiempo del curso</th>
+                <th>Modalidad</th>
+                <th>Activo</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in cursos %}
+                <tr>
+                    <td class="text-center">
+                        {% if curso.imagen %}
+                            <img src="{{ curso.imagen.url }}" alt="Imagen del curso" class="img-media" width="100" height="100">
+                        {% else %}
+                            <span>Sin imagen</span>
+                        {% endif %}
+                    </td>
+                    <td class="text-semibold">{{curso.nombre}}</td>
+                    <td class="text-semibold">{{curso.costo}}</td>
+                    <td class="muted">{{curso.duracion}}</td>
+                    <td class="muted">{{curso.modalidad}}</td>
+                    <td class="muted">{{curso.activo}}</td>
+                    <td class="text-center">
+                        <a href="{%url 'ConsultaIndividual' curso.id%}">Editar</a>	
+                    </td>
+                    <td class="text-center">
+                        <a href="{%url 'Eliminar' curso.id%}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<!-- /Contenido Principal-->
+{%endblock%}

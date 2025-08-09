@@ -1,0 +1,79 @@
+{% extends "inicio/encabezado.html" %}
+
+{% block titulo%} Editar {%endblock%}
+
+{%block imagen%}
+    {%load static%}
+    {%static 'inicio/images/contacto.png'%}
+{% endblock%}
+{%block descripcion%}
+	Editar
+{% endblock%}
+
+{% block contenido%}
+<div class="page-header">
+	<div class="page-title">
+        <h3>Curso
+		<small>Editando Información</small></h3>
+    </div>
+</div>
+{% block encabezdo%}
+<div class="breadcrumb-line">
+	<ul class="breadcrumb">
+		<a href="{%url 'Principal'%}">
+			{%if request.path == '/' %}
+				Principal
+			{%else%}
+				Principal{{request.path}}
+			{%endif%}
+        </a>
+	</ul>
+</div>
+{% endblock%}
+    
+    <form class="form-horizontal" action="{% url 'Editar' curso.id%}" method="POST" role="form">
+        {% csrf_token %}
+    <div class="form-group">
+        <label>Nombre:</label>
+        <textarea name="nombre" class="form-control" required>{{curso.nombre}}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Duración:</label>
+        <input type="text" name="duracion" class="form-control" value="{{ curso.duracion }}" required>
+    </div>
+
+    <div class="form-group">
+        <label>Precio:</label>
+        <input type="number" step="0.01" name="costo" class="form-control" value={{curso.costo }} required>
+    </div>
+
+    <div class="form-group">
+        <label>Modalidad:</label>
+        <select name="modalidad" class="form-control" required>
+            <option value="">Seleccione una opción</option>
+            <option value="presencial" {% if curso.modalidad == "presencial" %}selected{% endif %}>Presencial</option>
+            <option value="en_linea" {% if curso.modalidad == "en_linea" %}selected{% endif %}>En línea</option>
+            <option value="hibrido" {% if curso.modalidad == "hibrido" %}selected{% endif %}>Híbrido</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Activo:</label>
+        <input type="checkbox" name="activo"  {% if curso.activo %}checked{% endif %}>
+    </div>
+
+    <div class="form-group">
+        <label>Imagen:</label>
+        {% if curso.imagen %}
+            <p>Imagen actual:</p>
+            <img src="{{ curso.imagen.url }}" width="120">
+        {% endif %}
+        <input type="file" name="imagen" class="form-control">
+    </div>
+
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    </div>
+    </form>
+{%endblock%}

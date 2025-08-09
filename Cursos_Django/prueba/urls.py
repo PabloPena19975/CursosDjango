@@ -23,12 +23,16 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views_cursos.cursos, name="Principal"),
+    path('',views_cursos.principal, name="Principal"),
     #path('', views.principal, name="Principal"),
     path('contacto/',views.contacto, name="Contacto"),
     #path('formulario/',views.formulario,name="Formulario"),
     #path('ejemplo/',views.ejemplo,name="Ejemplo"),
-    path('cursos/',views.cursos,name="Cursos")
+    path('cursosConsulta/',views_cursos.cursosConsulta,name="Cursos"),
+    path('registrar/',views_cursos.registrar,name="Registrar"),
+    path('formEditarCurso/<int:id>/', views_cursos.consultarCursoIndividual, name='ConsultaIndividual'),
+    path('editarCurso/<int:id>/',views_cursos.editarCurso, name='Editar'),
+    path('eliminarCurso/<int:id>/', views_cursos.eliminarCurso, name='Eliminar'),
 ]
 
 if settings.DEBUG:
