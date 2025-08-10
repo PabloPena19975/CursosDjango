@@ -12,7 +12,7 @@ class Cursos(models.Model): #Define la estructura de nuestra tabla
         ('hibrido', 'Híbrido'),
     ])
     activo = models.BooleanField(default=False, verbose_name="Activo")
-    imagen = models.ImageField(null=True, upload_to="fotos", verbose_name="Fotografía")
+    imagen = models.ImageField(null=True, upload_to="static", verbose_name="Fotografía")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Registrado") #Fecha y tiempo
     updated = models.DateTimeField(auto_now_add=True)
 
